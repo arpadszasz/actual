@@ -12,8 +12,8 @@ import { Button } from '@actual-app/components/button';
 import { AnimatedLoading } from '@actual-app/components/icons/AnimatedLoading';
 import {
   SvgAdd,
-  SvgCheveronOutlineLeft,
-  SvgCheveronOutlineRight,
+  SvgUndo,
+  SvgRedo,
   SvgDotsHorizontalTriple,
 } from '@actual-app/components/icons/v1';
 import {
@@ -350,11 +350,11 @@ export function AccountHeader({
             </Button>
           )}
             <Button variant="bare" onPress={onUndo}>
-              <SvgCheveronOutlineLeft width={10} height={10} style={{ marginRight: 3 }} />
+              <SvgUndo width={10} height={10} style={{ marginRight: 3 }} />
               <Trans>Undo</Trans>
             </Button>
             <Button variant="bare" onPress={onRedo}>
-              <SvgCheveronOutlineRight width={10} height={10} style={{ marginRight: 3 }} />
+              <SvgRedo width={10} height={10} style={{ marginRight: 3 }} />
               <Trans>Redo</Trans>
             </Button>
           <View style={{ flexShrink: 0 }}>
