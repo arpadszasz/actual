@@ -209,6 +209,7 @@ document.addEventListener('keydown', e => {
     }
     // Cmd/Ctrl+z
     else if (e.key.toLowerCase() === 'z') {
+        console.log('UNDO preload');
       if (inputFocused(e)) {
         return;
       }
