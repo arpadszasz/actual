@@ -288,6 +288,8 @@ export { SvgUserGroup } from './UserGroup';
 export { SvgUserSolidCircle } from './UserSolidCircle';
 export { SvgUserSolidSquare } from './UserSolidSquare';
 export { SvgUser } from './User';
+export { SvgUndo } from './Undo';
+export { SvgRedo } from './Redo';
 export { SvgVector } from './Vector';
 export { SvgVideoCamera } from './VideoCamera';
 export { SvgViewCarousel } from './ViewCarousel';

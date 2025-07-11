@@ -22,6 +22,8 @@ export function useUndo(): UndoActions {
   const dispatch = useDispatch();
   const { isNarrowWidth } = useResponsive();
 
+  console.log('UNDO');
+
   const showUndoNotification = useCallback(
     (notification: Notification) => {
       if (!isNarrowWidth) {

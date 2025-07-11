@@ -12,6 +12,8 @@ import { Button } from '@actual-app/components/button';
 import { AnimatedLoading } from '@actual-app/components/icons/AnimatedLoading';
 import {
   SvgAdd,
+  SvgUndo,
+  SvgRedo,
   SvgDotsHorizontalTriple,
 } from '@actual-app/components/icons/v1';
 import {
@@ -83,6 +85,8 @@ type AccountHeaderProps = {
   filterConditionsOp: 'and' | 'or';
   onSearch: (newSearch: string) => void;
   onAddTransaction: () => void;
+  onUndo: () => void;
+  onRedo: () => void;
   onShowTransactions: ComponentProps<
     typeof SelectedTransactionsButton
   >['onShow'];
@@ -158,6 +162,8 @@ export function AccountHeader({
   filterConditionsOp,
   onSearch,
   onAddTransaction,
+  onUndo,
+  onRedo,
   onShowTransactions,
   onDoneReconciling,
   onCreateReconciliationTransaction,
@@ -343,6 +349,14 @@ export function AccountHeader({
               <Trans>Add New</Trans>
             </Button>
           )}
+            <Button variant="bare" onPress={onUndo}>
+              <SvgUndo width={10} height={10} style={{ marginRight: 3 }} />
+              <Trans>Undo</Trans>
+            </Button>
+            <Button variant="bare" onPress={onRedo}>
+              <SvgRedo width={10} height={10} style={{ marginRight: 3 }} />
+              <Trans>Redo</Trans>
+            </Button>
           <View style={{ flexShrink: 0 }}>
             {/* @ts-expect-error fix me */}
             <FilterButton onApply={onApplyFilter} />

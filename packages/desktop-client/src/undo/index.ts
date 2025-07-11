@@ -28,6 +28,7 @@ export function disableUndo() {
 
 export function undo() {
   if (_undoEnabled) {
+    console.log('UNDO 3');
     _undo();
   }
 }

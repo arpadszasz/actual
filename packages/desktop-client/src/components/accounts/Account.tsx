@@ -18,6 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { send, listen } from 'loot-core/platform/client/fetch';
 import * as undo from 'loot-core/platform/client/undo';
+import * as undoSend from '@desktop-client/undo';
 import { type UndoState } from 'loot-core/server/undo';
 import { currentDay } from 'loot-core/shared/months';
 import { q, type Query } from 'loot-core/shared/query';
@@ -729,6 +730,20 @@ class AccountInternal extends PureComponent<
 
   onAddTransaction = () => {
     this.setState({ isAdding: true });
+  };
+
+  onUndo = () => {
+    // this.setState({ isAdding: true });
+    console.log('UNDO Account.tsx');
+    console.dir(undo.currentUndoState);
+    undoSend.undo();
+  };
+
+  onRedo = () => {
+    // this.setState({ isAdding: true });
+    console.log('REDO Account.tsx');
+    console.dir(undo.currentUndoState);
+    undoSend.redo();
   };
 
   onSaveName = (name: string) => {
@@ -1769,6 +1784,8 @@ class AccountInternal extends PureComponent<
                 onShowTransactions={this.onShowTransactions}
                 onMenuSelect={this.onMenuSelect}
                 onAddTransaction={this.onAddTransaction}
+                onUndo={this.onUndo}
+                onRedo={this.onRedo}
                 onToggleExtraBalances={this.onToggleExtraBalances}
                 onSaveName={this.onSaveName}
                 saveNameError={this.state.nameError}
